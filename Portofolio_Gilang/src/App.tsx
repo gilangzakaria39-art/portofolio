@@ -50,9 +50,22 @@ const process = [
 ];
 
 const skills = [
-  "Huawei", "Cisco", "H3C", "MikroTik", "Fortinet",
-  "Aruba", "UniFi", "Juniper", "Omada", "Windows & Linux",
-  "SD-WAN", "Firewall", "VPN/IPSec", "Monitoring", "Automation",
+  { name: "Huawei", logo: "huawei" },
+  { name: "Cisco", logo: "cisco" },
+  { name: "H3C", logo: "h3c" },
+  { name: "MikroTik", logo: "mikrotik" },
+  { name: "Fortinet", logo: "fortinet" },
+  { name: "Aruba", logo: "arubanetworks" },
+  { name: "UniFi", logo: "ubiquiti" },
+  { name: "Juniper", logo: "junipernetworks" },
+  { name: "Omada", logo: "tp-link" },
+  { name: "Windows", logo: "windows" },
+  { name: "Linux", logo: "linux" },
+  { name: "SD-WAN", logo: "" },
+  { name: "Firewall", logo: "" },
+  { name: "VPN/IPSec", logo: "" },
+  { name: "Monitoring", logo: "" },
+  { name: "Automation", logo: "" },
 ];
 
 const projects = [
@@ -181,9 +194,14 @@ export default function App() {
             <a className="see-all" href="#skills">See All <Icon path={icons.chevron} /></a>
           </h3>
           <div className="skills-grid">
-            {skills.map((s) => (
-              <div className="skill-chip" key={s}>
-                {s}
+            {skills.map(({ name, logo }) => (
+              <div className="skill-chip" key={name}>
+                {logo ? (
+                  <img src={`https://cdn.simpleicons.org/${logo}`} alt="" loading="lazy" />
+                ) : (
+                  <span className="skill-mark" aria-hidden="true">{name.slice(0, 1)}</span>
+                )}
+                <span>{name}</span>
               </div>
             ))}
           </div>
