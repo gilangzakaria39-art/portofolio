@@ -172,7 +172,7 @@ body {
 .feature {
   display: flex;
   align-items: flex-start;
-  gap: 10px;
+  gap: 8px;
   color: var(--accent-2);
   font-size: 13px;
 }
@@ -276,28 +276,31 @@ body {
 }
 
 .skills-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 8px 4px;
 }
 
 .skill-chip {
-  display: inline-flex;
+  min-width: 0;
+  min-height: 57px;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 8px;
-  background: var(--panel-2);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 9px 12px;
-  font-size: 12px;
+  justify-content: center;
+  gap: 4px;
+  padding: 5px 2px;
+  border-right: 1px solid var(--border);
+  font-size: 10px;
   color: var(--text-dim);
+  text-align: center;
 }
 
 .skill-chip img,
 .skill-mark {
-  width: 18px;
-  height: 18px;
-  flex: 0 0 18px;
+  width: 21px;
+  height: 21px;
+  flex: 0 0 21px;
 }
 
 .skill-chip img {
@@ -312,6 +315,20 @@ body {
   color: #fff;
   font-size: 11px;
   font-weight: 700;
+}
+
+.mark-h3c { background: #e83239; }
+.mark-aruba { background: transparent; color: #f5a623; font-size: 13px; }
+.mark-omada { background: transparent; color: #16bb8a; font-size: 13px; }
+.mark-windows { background: transparent; font-size: 22px; }
+.mark-sd-wan { background: transparent; color: #18b7db; font-size: 20px; }
+.mark-firewall { background: #f04432; }
+.mark-vpn-ipsec { background: #2872ee; }
+.mark-monitoring { background: #eb8a24; }
+.mark-automation { background: #13a9de; }
+
+.skill-chip > span:last-child {
+  line-height: 1.15;
 }
 
 .project-list {

@@ -52,13 +52,13 @@ const process = [
 const skills = [
   { name: "Huawei", logo: "huawei" },
   { name: "Cisco", logo: "cisco" },
-  { name: "H3C", logo: "h3c" },
+  { name: "H3C", logo: "" },
   { name: "MikroTik", logo: "mikrotik" },
   { name: "Fortinet", logo: "fortinet" },
-  { name: "Aruba", logo: "arubanetworks" },
+  { name: "Aruba", logo: "" },
   { name: "UniFi", logo: "ubiquiti" },
   { name: "Juniper", logo: "junipernetworks" },
-  { name: "Omada", logo: "tp-link" },
+  { name: "Omada", logo: "" },
   { name: "Windows", logo: "windows" },
   { name: "Linux", logo: "linux" },
   { name: "SD-WAN", logo: "" },
@@ -199,7 +199,9 @@ export default function App() {
                 {logo ? (
                   <img src={`https://cdn.simpleicons.org/${logo}`} alt="" loading="lazy" />
                 ) : (
-                  <span className="skill-mark" aria-hidden="true">{name.slice(0, 1)}</span>
+                  <span className={`skill-mark mark-${name.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`} aria-hidden="true">
+                    {name === "H3C" ? "H3C" : name === "Windows" ? "⊞" : name === "Automation" ? "↻" : name.slice(0, 1)}
+                  </span>
                 )}
                 <span>{name}</span>
               </div>
