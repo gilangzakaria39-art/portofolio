@@ -373,6 +373,41 @@ body {
   font-size: 12px;
 }
 
+/* CONNECT DROPDOWN */
+.connect-wrap {
+  position: relative;
+}
+
+.connect-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  min-width: 160px;
+  z-index: 10;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.4);
+}
+
+.connect-menu a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  color: var(--text);
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.connect-menu a:hover {
+  background: var(--panel-2);
+}
+
 /* RESPONSIVE */
 @media (max-width: 900px) {
   .hero {

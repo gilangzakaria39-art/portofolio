@@ -1,4 +1,11 @@
+import { useState } from "react";
 import "./App.css";
+
+/* ---------- Contact info ---------- */
+const CONTACT = {
+  whatsapp: "6281295880257",
+  email: "gilangzakaria39@gmail.com",
+};
 
 /* ---------- Icon (simple inline SVGs, no extra dependency needed) ---------- */
 const Icon = ({ path }: { path: string }) => (
@@ -20,6 +27,7 @@ const icons = {
   lock: "M6 11V8a6 6 0 0 1 12 0v3m-13 0h14v9H5v-9z",
   bulb: "M9 18h6M10 21h4M12 3a6 6 0 0 0-3 11.2c.6.4 1 1 1 1.8v.5h4v-.5c0-.8.4-1.4 1-1.8A6 6 0 0 0 12 3z",
   mail: "M4 6h16v12H4V6zm0 0l8 7 8-7",
+  whatsapp: "M12 3a9 9 0 0 0-7.8 13.4L3 21l4.7-1.2A9 9 0 1 0 12 3zm5 12.4c-.2.6-1.2 1.1-1.7 1.2-.4.1-1 .1-1.6-.1-.4-.1-.9-.3-1.5-.6-2.6-1.1-4.3-3.8-4.4-4-.1-.2-1-1.3-1-2.5s.6-1.8.8-2c.2-.2.5-.3.6-.3h.5c.1 0 .3 0 .5.4l.7 1.7c.1.2.1.3 0 .5l-.3.4-.3.3c-.1.1-.2.3 0 .5.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.4.1.6-.1l.6-.7c.2-.2.3-.2.5-.1l1.5.7c.2.1.3.2.3.3.1.1.1.5-.1 1z",
   download: "M12 4v12m0 0l-4-4m4 4l4-4M4 20h16",
   chevron: "M9 6l6 6-6 6",
 };
@@ -55,6 +63,8 @@ const projects = [
 ];
 
 export default function App() {
+  const [showContact, setShowContact] = useState(false);
+
   return (
     <div className="page">
       {/* NAVBAR */}
@@ -92,9 +102,25 @@ export default function App() {
             interest in automation, observability, and emerging technologies.
           </p>
           <div className="hero-buttons">
-            <button className="btn-primary">
-              <Icon path={icons.mail} /> Let's Connect
-            </button>
+            <div className="connect-wrap">
+              <button className="btn-primary" onClick={() => setShowContact((v) => !v)}>
+                <Icon path={icons.mail} /> Let's Connect
+              </button>
+              {showContact && (
+                <div className="connect-menu">
+                  <a
+                    href={`https://wa.me/${CONTACT.whatsapp}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Icon path={icons.whatsapp} /> WhatsApp
+                  </a>
+                  <a href={`mailto:${CONTACT.email}`}>
+                    <Icon path={icons.mail} /> Email
+                  </a>
+                </div>
+              )}
+            </div>
             <button className="btn-secondary">
               <Icon path={icons.download} /> Download CV
             </button>
