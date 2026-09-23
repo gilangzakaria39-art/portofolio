@@ -325,7 +325,7 @@ export default function App() {
             <span className="project-modal-label">PROJECT DETAILS</span>
             <h2 id="project-modal-title">{selectedProject.title}</h2>
             <p>{selectedProject.details}</p>
-            {"work" in selectedProject && (
+            {"work" in selectedProject && selectedProject.work && (
               <>
                 <h3 className="project-modal-subtitle">What I worked on</h3>
                 <ul className="project-modal-list">
